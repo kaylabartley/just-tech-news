@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
+    //include is like JOIN 
     include: [
       {
         model: Comment,
